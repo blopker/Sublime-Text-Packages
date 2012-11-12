@@ -53,12 +53,14 @@ ProductList.prototype = {
 
 		this.listjs = new List('package-list', options, values);
 
+		// Set callbacks when the list get filtered or sorted.
 		var self = this;
 		this.listjs.on('updated', function() {
 			self._listChangedCallback();
 		});
 		self._listChangedCallback();
 
+		// Clean up old html
 		originalList.remove();
 
 		// Make hash links work.
